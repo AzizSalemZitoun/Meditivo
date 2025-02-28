@@ -1,0 +1,45 @@
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #D1FFF2
+
+    ;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .toolbar img {
+    width: 80px;
+    height: auto;
+  }
+   .spacer {
+    flex: 1;
+  }
+  
+ /* Default button styles (applied to all buttons) */
+button {
+  padding: 10px 20px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  color: #565E6CFF; /* Default text color */
+  background: #3595A3; /* Default background */
+  color: #D1FFF2;
+  border: none;
+  border-radius: 16px; /* Rounded corners */
+  cursor: pointer;
+  margin-right: 10px; /* Add spacing between buttons */
+}
+
+/* Hover state for all buttons */
+button:hover {
+  background: #0f353a; /* Hover background */
+}
+
+/* Active state for all buttons */
+button:active {
+  background: #CED0F8FF; /* Active background */
+}
+
+/* Specific styles for Auth Buttons */
