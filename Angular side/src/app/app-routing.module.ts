@@ -5,12 +5,14 @@ import { SessionComponent } from './session/session.component';
 import { PresetComponent } from './preset/preset.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ExploreComponent } from './explore/explore.component';
 const routes: Routes = [
   { path: '', component: MeditivoLandingComponent },
   {path: 'session',component:SessionComponent},
   {path:'presets',component:PresetComponent},
   {path:'login',component:LoginComponent},
-  {path:'signup',component:SignupComponent}
+  {path:'signup',component:SignupComponent},
+  {path:'explore',component:ExploreComponent}
 
 ];
 
