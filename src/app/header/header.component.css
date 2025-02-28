@@ -1,45 +1,77 @@
+/* Default header styling */
 .toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #D1FFF2
+    background-color: #D1FFF2;
+    border-bottom: 2px solid #ddd; /* Default border thickness */
+    transition: border-bottom 0.3s ease; /* Smooth transition */
+  }
+  .toolbar img{
 
-    ;
-    border-bottom: 1px solid #ddd;
+cursor: pointer;
+
+  }
+  /* Increase border thickness when scrolling */
+  .scroll-changed {
+    border-bottom: 5px solid #00C7B7; /* Thicker border when scrolled */
   }
   
+  /* Hover effect for div elements (not for the entire toolbar) */
+  div:hover {
+    border-bottom: 3px solid #ddd;  /* Thicker border on hover */
+  }
+  
+  /* Logo styling */
   .toolbar img {
     width: 80px;
     height: auto;
   }
-   .spacer {
+  
+  /* Spacer for the flexible space between elements */
+  .spacer {
     flex: 1;
   }
   
- /* Default button styles (applied to all buttons) */
-button {
-  padding: 10px 20px;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 400;
-  color: #565E6CFF; /* Default text color */
-  background: #3595A3; /* Default background */
-  color: #D1FFF2;
-  border: none;
-  border-radius: 16px; /* Rounded corners */
-  cursor: pointer;
-  margin-right: 10px; /* Add spacing between buttons */
-}
-
-/* Hover state for all buttons */
-button:hover {
-  background: #0f353a; /* Hover background */
-}
-
-/* Active state for all buttons */
-button:active {
-  background: #CED0F8FF; /* Active background */
-}
-
-/* Specific styles for Auth Buttons */
+  /* Default button styles (applied to all buttons) */
+  button {
+    padding: 10px 20px;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    color: #565E6CFF; /* Default text color */
+    background: #3595A3; /* Default background */
+    color: #ffffff;
+    border: none;
+    border-radius: 16px; /* Rounded corners */
+    cursor: pointer;
+    margin-right: 10px; /* Add spacing between buttons */
+  }
+  
+  /* Hover state for all buttons */
+  button:hover {
+    background: #0f353a; /* Hover background */
+  }
+  
+  /* Active state for all buttons */
+  button:active {
+    background: #CED0F8FF; /* Active background */
+  }
+  
+  /* Specific styles for Auth Buttons */
+  .auth-button {
+    background-color: #00C7B7; /* Auth button background */
+    color: white; /* Text color */
+    padding: 12px 24px; /* Larger padding for auth buttons */
+    border-radius: 25px; /* Rounded corners for auth buttons */
+  }
+  
+  .auth-button:hover {
+    background-color: #1d8e7a; /* Darker hover effect for auth buttons */
+  }
+  
+  .auth-button:active {
+    background-color: #12826e; /* Active state for auth buttons */
+  }
+  

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-meditivo-landing',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./meditivo-landing.component.css']
 })
 export class MeditivoLandingComponent {
-
+  constructor(private router: Router) { }
 }

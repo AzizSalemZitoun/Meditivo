@@ -1,0 +1,7 @@
+<div class="session">
+  <h1>{{ sessionStatus }}</h1>
+  <button (click)="startPauseSession()">
+    {{ sessionStatus === 'In Progress' ? 'Pause' : 'Start' }} Session
+  </button>
+  <app-timer [sessionStatus]="sessionStatus"></app-timer>
+</div>

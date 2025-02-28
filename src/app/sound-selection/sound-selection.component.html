@@ -1,0 +1,8 @@
+<div class="sound-selection">
+    <label for="sounds">Choose Background Sound:</label>
+    <select id="sounds" [(ngModel)]="selectedSound">
+      <option *ngFor="let sound of sounds" [value]="sound">{{ sound }}</option>
+    </select>
+    <button (click)="previewSound()">Preview</button>
+  </div>
+  

@@ -1,0 +1,8 @@
+<div class="preset">
+    <h2>Saved Presets</h2>
+    <ul>
+      <li *ngFor="let preset of presets">{{ preset }}</li>
+    </ul>
+    <button (click)="savePreset()">Save Current Session as Preset</button>
+  </div>
+  
