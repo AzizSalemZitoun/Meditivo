@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,28 +17,34 @@ user: User = {
   };
 
     constructor(
+      private authService: AuthService,
     private router: Router,
     private userService: UserService
   ) {}
-
-  onSubmit(): void {
+onLoginSuccess() {
+  this.authService.login();
+  this.router.navigate(['/session']);
+}onSubmit(): void {
   const credentials = {
     email: this.user.email,
     password: this.user.password
   };
 
-  this.userService.signin(credentials).subscribe(
-    (response) => {
-      console.log('User signed in successfully!', response);
-      alert('User signed in successfully!');
-
+ this.userService.signin(credentials).subscribe({
+  next: (response: any) => {
+    if (response.token) {
       localStorage.setItem('token', response.token);
-      this.router.navigate(['/explore']);
-    },
-    (error) => {
-      console.error('Error signin user:', error);
-      alert('Failed signin.');
+      alert('User signed in successfully!');
+      this.onLoginSuccess();
+    } else {
+      alert('Login failed: no token received.');
     }
-  );
+  },
+  error: (err) => {
+    console.error('Login error', err);
+    alert('Failed signin. Check credentials or account status.');
+  }
+});
 }
+
 }

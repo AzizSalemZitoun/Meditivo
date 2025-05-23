@@ -3,15 +3,9 @@ package tn.esprit.meditivo.DTO;
 public class LoginRequest {
     private String email;
     private String password;
-    private String captchaToken;
 
-    public String getCaptchaToken() {
-        return captchaToken;
-    }
 
-    public void setCaptchaToken(String captchaToken) {
-        this.captchaToken = captchaToken;
-    }
+
 
     public String getEmail() {
         return email;

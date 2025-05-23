@@ -7,7 +7,7 @@ import { MeditivoLandingComponent } from './meditivo-landing/meditivo-landing.co
 import { SessionComponent } from './session/session.component';
 import { SoundSelectionComponent } from './sound-selection/sound-selection.component';
 import { TimerComponent } from './timer/timer.component';
-import { PresetComponent } from './preset/preset.component';
+
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -23,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SessionComponent,
     SoundSelectionComponent,
     TimerComponent,
-    PresetComponent,
+   
     UserProfileComponent,
     LoginComponent,
     SignupComponent,

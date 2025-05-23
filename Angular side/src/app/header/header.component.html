@@ -1,18 +1,19 @@
 <header class="toolbar" role="banner">
-    <img routerLink="/"  alt="Logo" src="assets/meditivo-logo.PNG" />
-  
-    <div class="spacer"></div>
-  
-    <!-- Navigation Buttons -->
-    <nav>
-      <button routerLink="/">Home</button>
-      <button routerLink="/presets">Presets</button>
-    </nav>
-  
-    <!-- Auth Buttons -->
-    <nav>
-      <button class="auth-button" routerLink="/signup">Sign Up</button>
-      <button class="auth-button" routerLink="/login">Sign In</button>
-    </nav>
-  </header>
-  
+  <img routerLink="/" alt="Logo" src="assets/meditivo-logo.PNG" />
+
+  <div class="spacer"></div>
+
+  <!-- Navigation Buttons -->
+  <nav>
+    <button routerLink="/">Home</button>
+    <button routerLink="/session">Session</button>
+    <button *ngIf="isLoggedIn" routerLink="/profile">Profile</button>
+  </nav>
+
+  <!-- Auth Buttons -->
+  <nav>
+    <button *ngIf="!isLoggedIn" class="auth-button" routerLink="/signup">Sign Up</button>
+    <button *ngIf="!isLoggedIn" class="auth-button" routerLink="/login">Sign In</button>
+    
+  </nav>
+</header>

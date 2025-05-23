@@ -3,6 +3,7 @@ package tn.esprit.meditivo.Controllers;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.meditivo.DTO.LoginRequest;
@@ -27,6 +28,9 @@ public class UserRestController {
 @PostMapping("/signin")
 public ResponseEntity<?> signin(@RequestBody LoginRequest loginRequest) {
     String token = userService.authenticate(loginRequest.getEmail(), loginRequest.getPassword());
+    if (token == null || token.isEmpty()) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
+    }
     return ResponseEntity.ok(Collections.singletonMap("token", token));
 }
     @PostMapping("/add")
@@ -47,5 +51,11 @@ public ResponseEntity<?> signin(@RequestBody LoginRequest loginRequest) {
     @GetMapping("/list")
     public List<User> retrieveall() {
         return userService.retrieveallusers();
+    }
+    @GetMapping("/userid/{id}")
+    public User retrieveuser(@PathVariable("id") Long id) {
+    return userRepository.findById(id).get();
+
+
     }
 }

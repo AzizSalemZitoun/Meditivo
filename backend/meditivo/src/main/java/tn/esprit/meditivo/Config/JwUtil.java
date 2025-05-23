@@ -16,7 +16,7 @@ public class JwUtil {
     // Generate token
     public String generateToken(User user) {
         return Jwts.builder()
-                .setSubject(user.getEmail())
+                .setSubject(String.valueOf(user.getId()))
                 .claim("username", user.getUsername())
                 .claim("email", user.getEmail())
                 .setIssuedAt(new Date())

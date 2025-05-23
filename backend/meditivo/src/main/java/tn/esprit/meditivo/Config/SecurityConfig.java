@@ -13,7 +13,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import tn.esprit.meditivo.Services.UserDetailsService;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -47,7 +52,8 @@ return authProvider;
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for APIs
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/user/**").permitAll() // Allow authentication endpoints
+                        .requestMatchers("/user/**","/meditivo/session/**").permitAll()
+                        // Allow authentication endpoints
                         .anyRequest().authenticated() // Protect other endpoints
                 )
                 .authenticationProvider(authenticationProvider());
@@ -66,4 +72,17 @@ return authProvider;
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(); // Password encryption
     }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of("http://localhost:4200"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(false); // conforme à ta config
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 }
+

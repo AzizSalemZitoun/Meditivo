@@ -1,7 +1,52 @@
 <div class="session">
-  <h1>{{ sessionStatus }}</h1>
-  <button (click)="startPauseSession()">
-    {{ sessionStatus === 'In Progress' ? 'Pause' : 'Start' }} Session
-  </button>
-  <app-timer [sessionStatus]="sessionStatus"></app-timer>
+  <h1>Meditation Session</h1>
+
+  <!-- Step 1: Choose Duration -->
+  <div *ngIf="step === 1">
+    <h2>Select Duration</h2>
+    <button *ngFor="let d of durationOptions" (click)="chooseDuration(d)">
+      {{ d / 60 }} minutes
+    </button>
+  </div>
+
+  <!-- Step 2: Want sound? -->
+  <div *ngIf="step === 2">
+    <h2>Do you want background sound?</h2>
+    <button (click)="chooseWantsSound(true)">Yes</button>
+    <button (click)="chooseWantsSound(false)">No</button>
+  </div>
+
+  <!-- Step 3: Choose sound -->
+  <div *ngIf="step === 3">
+    <h2>Select a sound</h2>
+    <button *ngFor="let s of sounds" (click)="chooseSound(s)">
+      {{ s }}
+    </button>
+  </div>
+
+  <!-- Step 4: Timer -->
+  <div *ngIf="step === 4">
+    <h2>Session Timer</h2>
+    <p>{{ formatTime(timeLeft) }}</p>
+
+    <button (click)="startTimer()" [disabled]="isRunning">Start</button>
+    <button (click)="pauseTimer()" [disabled]="!isRunning">Pause</button>
+    <button (click)="resetTimer()">Reset</button>
+    <button (click)="restartSession()">New Session</button>
+    <button (click)="saveSession()">💾 </button>
+  </div>
+
+  <!-- Saved sessions display -->
+  <div class="saved-sessions" style="margin-top: 2em;">
+    <h2>Saved Sessions</h2>
+    <ul *ngIf="savedSessions.length > 0; else noSessions">
+      <li *ngFor="let session of savedSessions">
+        Duration: {{ session.duration / 60 }} minutes,
+        Sound: {{ session.sound || 'No sound' }}
+      </li>
+    </ul>
+    <ng-template #noSessions>
+      <p>No saved sessions found.</p>
+    </ng-template>
+  </div>
 </div>

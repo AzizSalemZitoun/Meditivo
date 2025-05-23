@@ -1,9 +1,13 @@
-<div class="user-profile">
-    <h1>Profile</h1>
-    <p>Username: {{ username }}</p>
-    <h2>Saved Presets</h2>
-    <ul>
-      <li *ngFor="let preset of savedPresets">{{ preset }}</li>
-    </ul>
+<div class="profile-container">
+  <div class="user-profile">
+    <h1>My Profile</h1>
+    <p><strong>👤 Username:</strong> {{ username }}</p>
+    <p><strong>📧 Email:</strong> {{ email }}</p>
+
+<div class="button-cont">
+    <button (click)="deleteAccount()" class="delete-btn">🗑️</button>
+   
+    <button  class="logout">🚪</button>
+    </div>
   </div>
-  
+</div>
