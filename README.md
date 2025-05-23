@@ -1,58 +1,51 @@
 Meditivo 🧘‍♂️🖥️📱
-Meditivo is a full stack meditation web app built with Angular (frontend) and Spring Boot (backend).
-It allows users to create, save, and manage meditation sessions with custom durations and sounds.
+Meditivo is a full-stack meditation web app built with Angular (frontend) and Spring Boot (backend).
+It empowers users to create, save, and manage personalized meditation sessions with custom durations and soothing background sounds.
 
-Features
-User authentication with JWT
+✨ Features
+Secure user authentication with JWT
 
-Create and save meditation sessions
+Create and save custom meditation sessions
 
 Select session duration and background sounds
 
-Fetch user’s saved sessions
+Fetch and manage your saved sessions
 
-Responsive UI with Angular frontend
+Responsive, user-friendly UI with Angular frontend
 
-Tech Stack
-Frontend: Angular
+🛠️ Tech Stack
+Layer	Technology
+Frontend	Angular
+Backend	Spring Boot (Java)
+Database	MySQL
+Security	JWT Authentication
+Others	CORS configured for frontend-backend communication
 
-Backend: Spring Boot (Java)
+🚀 Setup & Running
+Backend
+Run Spring Boot app at: http://localhost:8089
 
-Database: (MySQL)
+Frontend
+Run Angular app at: http://localhost:4200
 
-Security: JWT authentication
+Frontend communicates with backend APIs for session management
 
-Others: CORS configured for frontend-backend communication
+🔧 CORS Configuration
+Backend is configured to allow cross-origin requests from the Angular frontend to enable smooth API communication.
 
-Setup
-Backend:
+🎯 How to Use
+Register or log in
 
-Run Spring Boot app on http://localhost:8089
+Create a meditation session by selecting duration and sound
 
+Save your session and access it anytime
 
+📝 Notes
+Include your JWT token in the Authorization header for all protected API calls
 
-Frontend:
+Adjust database settings in the backend configuration files if necessary
 
-Run Angular app on http://localhost:4200
-
-Calls backend APIs for session management
-
-CORS Configuration
-Backend allows cross-origin requests from Angular frontend to enable smooth API communication.
-
-How to Use
-Register/login
-
-Create a meditation session by choosing duration and sound
-
-Save and fetch your sessions
-
-Notes
-Make sure to pass JWT token in the Authorization header for protected API calls.
-
-Adjust DB settings in backend config files if needed.
-
-Contact
-For questions or contributions, feel free to reach out! ✌️
-medazizsalemzitoun@gmail.com
+📬 Contact
+Questions or contributions? Feel free to reach out! ✌️
+Email: medazizsalemzitoun@gmail.com
 
