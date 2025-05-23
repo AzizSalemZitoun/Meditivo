@@ -1,8 +1,12 @@
 package tn.esprit.meditivo.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import tn.esprit.meditivo.Config.JwUtil;
 import tn.esprit.meditivo.Entities.User;
 import tn.esprit.meditivo.Repositories.UserRepository;
 
@@ -17,6 +21,11 @@ public class UserService implements IUserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    JwUtil jwUtil;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Override
     public User adduser(User user) {
@@ -70,4 +79,23 @@ public class UserService implements IUserService {
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
+@Override
+public String authenticate(String email, String password){
+        Optional<User> useroptional = userRepository.findByEmail(email);
+        if (useroptional.isPresent() && passwordEncoder.matches(password, useroptional.get().getPassword())) {
+            User user = useroptional.get();
+
+            if (passwordEncoder.matches(password, user.getPassword())) {
+                String name = user.getUsername();
+                return jwUtil.generateToken(user);
+            } else {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Mot de passe incorrect.");
+            }
+        }
+      String error =("Identifiants incorrects.");
+return error;
+
+}
+
 }

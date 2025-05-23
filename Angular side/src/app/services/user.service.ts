@@ -14,7 +14,9 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.apiUrl}/list`);
   }
-
+ signin(credentials: { email: string; password: string }) {
+  return this.http.post<{ token: string }>(`${this.apiUrl}/signin`, credentials);
+}
   
   getUserById(id: number): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/${id}`);

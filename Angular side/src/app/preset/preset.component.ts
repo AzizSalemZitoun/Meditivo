@@ -9,7 +9,7 @@ export class PresetComponent {
   presets: string[] = ['Relaxation', 'Focus'];
   
   savePreset() {
-    const newPreset = 'My Custom Preset'; // Capture current session data
+    const newPreset = 'My Custom Preset'; 
     this.presets.push(newPreset);
   }
 }

@@ -23,7 +23,7 @@ export class SignupComponent {
       (response) => {
         console.log('User added successfully!', response);
         alert('User added successfully!');
-        this.router.navigate(['/']);
+        this.router.navigate(['login']);
       },
       (error) => {
         console.error('Error creating user:', error);

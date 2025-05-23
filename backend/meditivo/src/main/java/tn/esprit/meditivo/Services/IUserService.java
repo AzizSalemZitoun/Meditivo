@@ -16,4 +16,6 @@ public interface IUserService {
     boolean existsByUsername(String username);
 
     boolean existsByEmail(String email);
+
+    String authenticate(String email, String password);
 }
