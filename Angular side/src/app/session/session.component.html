@@ -33,20 +33,8 @@
     <button (click)="pauseTimer()" [disabled]="!isRunning">Pause</button>
     <button (click)="resetTimer()">Reset</button>
     <button (click)="restartSession()">New Session</button>
-    <button (click)="saveSession()">💾 </button>
+   
   </div>
 
-  <!-- Saved sessions display -->
-  <div class="saved-sessions" style="margin-top: 2em;">
-    <h2>Saved Sessions</h2>
-    <ul *ngIf="savedSessions.length > 0; else noSessions">
-      <li *ngFor="let session of savedSessions">
-        Duration: {{ session.duration / 60 }} minutes,
-        Sound: {{ session.sound || 'No sound' }}
-      </li>
-    </ul>
-    <ng-template #noSessions>
-      <p>No saved sessions found.</p>
-    </ng-template>
-  </div>
+ 
 </div>

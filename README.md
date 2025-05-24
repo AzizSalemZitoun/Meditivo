@@ -1,4 +1,6 @@
 Meditivo 🧘‍♂️🖥️📱
+
+
 Meditivo is a full-stack meditation web app built with Angular (frontend) and Spring Boot (backend).
 It empowers users to create, save, and manage personalized meditation sessions with custom durations and soothing background sounds.
 

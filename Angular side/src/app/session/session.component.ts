@@ -25,20 +25,10 @@ export class SessionComponent implements OnInit {
   constructor(private sessionService: SessionService) {}
 
   ngOnInit() {
-    this.loadSavedSessions();
+    
   }
 
-  loadSavedSessions() {
-    this.sessionService.getSessionsByUser().subscribe({
-      next: sessions => {
-        this.savedSessions = Array.isArray(sessions) ? sessions : [];
-      },
-      error: err => {
-        console.error('Failed to fetch sessions', err);
-        this.savedSessions = [];
-      }
-    });
-  }
+  
 
   chooseDuration(seconds: number) {
     this.selectedDuration = seconds;
@@ -103,26 +93,7 @@ export class SessionComponent implements OnInit {
     }
   }
 
-  saveSession() {
-    if (!this.selectedDuration) return;
-
-    const sessionData = {
-      duration: this.selectedDuration,
-      sound: this.wantsSound ? this.selectedSound : null
-    };
-
-    this.sessionService.saveSession(this.selectedDuration!, this.selectedSound)
-    .subscribe({
-      next: res => {
-        console.log('Session saved:', res);
-        this.loadSavedSessions(); // recharger les sessions
-      },
-      error: err => {
-        console.error('Failed to save session', err);
-      }
-    });
-  }
-
+ 
   formatTime(seconds: number): string {
     const m = Math.floor(seconds / 60).toString().padStart(2, '0');
     const s = (seconds % 60).toString().padStart(2, '0');

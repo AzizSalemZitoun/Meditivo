@@ -18,10 +18,10 @@ export class AuthService {
     // Optionally store token/session here
   }
 
-  logout() {
-    this.loggedIn.next(false);
-    // Clear stored token/session here if any
-  }
+  logout(): void {
+  localStorage.removeItem('token'); // or your JWT key
+  // Optionally clear other user info
+}
 
   // Optional: check if user is already logged in on app start
   isLoggedIn(): boolean {
