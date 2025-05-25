@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-meditivo-landing',
-  templateUrl: './meditivo-landing.component.html',
+  templateUrl: './index.html',
   styleUrls: ['./meditivo-landing.component.css']
 })
 export class MeditivoLandingComponent {
